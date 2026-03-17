@@ -21,11 +21,11 @@ COLOR_TARJ = '#2E5A88'
 COLOR_PERS = '#95B3D7'
 UMBRAL_HISTORICO = 4.2
 
-# --- CREACIÓN DEL FIG ---
+# --- Hagase los charts! ---
 fig = make_subplots(
     rows=3, cols=2, 
     subplot_titles=titulos_graficos,
-    vertical_spacing=0.15, # Ajustado para dar aire entre filas
+    vertical_spacing=0.15,
     horizontal_spacing=0.1
 )
 
@@ -73,25 +73,25 @@ fig.update_layout(
     paper_bgcolor='#1A1A1B', 
     plot_bgcolor='#1A1A1B',
     barmode='group',
-    margin=dict(t=130, b=80, l=70, r=70), # Margen superior optimizado
+    margin=dict(t=130, b=80, l=70, r=70),
     legend=dict(
         orientation="h", 
         yanchor="bottom", 
-        y=1.02, # Se posiciona justo encima del área de gráficos
+        y=1.02,
         xanchor="center", 
         x=0.5,
         font=dict(size=12)
     )
 )
 
-# Ajuste de títulos de subplots (Bancos) - Separados del gráfico
+# Ajuste de títulos de subplots
 fig.update_annotations(patch=dict(font=dict(size=13, color="white"), yshift=15), selector={'text': titulos_graficos})
 
 # Ejes
 fig.update_yaxes(ticksuffix="%", range=[0, 22], gridcolor='#333333')
 fig.update_xaxes(tickfont=dict(size=10))
 
-# Nota al pie global
+# Nota al pie
 fig.add_annotation(
     x=0.5, y=-0.06, xref='paper', yref='paper',
     text="<b>Fuente:</b> Estimaciones basadas en Central de Deudores BCRA.",
